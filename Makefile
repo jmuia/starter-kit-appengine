@@ -12,4 +12,4 @@ deploy:
 lint:
 	flake8 .
 
-.PHONY: test debug deploy
+.PHONY: test debug deploy lint
