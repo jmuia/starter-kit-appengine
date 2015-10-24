@@ -1,6 +1,10 @@
 all: debug
 
-test:
+clean:
+	rm -f .coverage
+	find . -name \*.pyc -delete
+
+test: clean
 	python -m unittest discover -v -t . -s test
 
 debug:
@@ -12,4 +16,8 @@ deploy:
 lint:
 	flake8 .
 
-.PHONY: test debug deploy lint
+coverage: clean
+	coverage run -m unittest discover -f -t . -s test 2> /dev/null
+	coverage report -m
+
+.PHONY: clean test debug deploy lint coverage
