@@ -9,4 +9,7 @@ debug:
 deploy:
 	make test && appcfg.py update --oauth2 .
 
+lint:
+	flake8 .
+
 .PHONY: test debug deploy
